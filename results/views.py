@@ -102,4 +102,5 @@ def result(request):
         final_result['sgpa'] = Decimal(sgpa/sum(credits)).quantize(Decimal('.001'), rounding=ROUND_DOWN)
     except:
         pass
+    print(final_result['student_name'])
     return render(request,'result.html',context=final_result)
