@@ -39,6 +39,7 @@ def result(request):
         portal = requests.post(url,data={'roll_no':roll_no,'dob':dob})
         print(portal.content)
         soup = BeautifulSoup(portal.content,'lxml')
+        print(soup)
         result = soup.find('section',{'id':"printResults"})
         # semester name
         semester = result.h6.text
