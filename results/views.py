@@ -11,7 +11,9 @@ def result(request):
     roll_no = request.POST.get('roll_no')
     dob = request.POST.get('dob')
     sem = request.POST.get('semester')
-
+    print(roll_no)
+    print(dob)
+    print(sem)
     grades = {
         'S' : 10,
         'A++' : 9.5,
@@ -33,7 +35,9 @@ def result(request):
 
     try:
         url = "https://jntuacep.ac.in/results/"+sem
+        print(url)
         portal = requests.post(url,data={'roll_no':roll_no,'dob':dob})
+        print(portal)
         soup = BeautifulSoup(portal.content,'lxml')
         result = soup.find('section',{'id':"printResults"})
         # semester name
@@ -100,7 +104,7 @@ def result(request):
             sgpa += (float(final_result['data'][sub][5]) * float(final_result['data'][sub][6]))
             
         final_result['sgpa'] = Decimal(sgpa/sum(credits)).quantize(Decimal('.001'), rounding=ROUND_DOWN)
+        print(final_result)
     except:
-        pass
-    print("hello world")
+        print("error")
     return render(request,'result.html',context=final_result)
