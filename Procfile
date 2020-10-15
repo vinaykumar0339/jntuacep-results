@@ -1,0 +1,1 @@
+web: gunicorn jntuacep_results.wsgi --log-file -

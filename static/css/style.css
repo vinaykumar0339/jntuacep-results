@@ -1,0 +1,56 @@
+body {
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    background: #F7F7F7;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.header-part {
+    background: white;
+    text-align: center;
+
+}
+
+@media (min-width: 768px) {
+    .header-part .mdiv {
+        margin-top: 0rem;
+    }
+
+    .header-part img {
+    }
+}
+
+.latest-results {
+    padding: 1rem;
+    background: white;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+}
+
+.latest-results a {
+    color: blue;
+}
+
+.latest-results a:hover {
+    color: blue;
+}
+
+.footer-part {
+    background: #EFF3F6;
+    padding: 1rem;
+}
+
+th {
+    background: #008DD2;
+    color: white;
+}
+
+.table {
+    font-size: .8rem;
+}
