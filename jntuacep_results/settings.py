@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '@j@r=1j7qks&wrqau)2=5)t*vdspzlkll1$wt%@3mdla4(cy1k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['jntuacep-results.herokuapp.com','127.0.0.1']
 
