@@ -59,42 +59,6 @@
 
 <!--Latest Results Section-->
 
-<section class="mt-4">
-    <div class="container latest-results">
-        <h4 class="text-center">Get Results</h4>
-        <div class="row">
-            <div class="col-sm-5 mx-auto text-center">
-                <form action="result" method="post">
-                    {% csrf_token %}
-                    <div class="input-group mb-3">
-                        <select style="width: auto;" class="form-control" name="semester">
-                            <option disabled='true' selected>--select semester--</option>
-                            <option value="get-results/?rid=r38913998">I B.Tech I Semester (Regular) R19 December 2019 Results</option>
-                            <option value="get-results/?rid=r83717805">II B.Tech I Semester (Reg/Supply) R15 November 2019 Results</option>
-                            <option value="get-results/?rid=r75353068">III B.Tech I Semester (Reg/Supply) R15 November 2019 Results</option>
-                            <option value="get-results/?rid=r92806313">IV B.Tech I Semester (Reg/Supply) R15 November 2019 Results</option>
-                        </select>
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Roll No</span>
-                        </div>
-                        <input class="form-control" type="text" placeholder="Roll No" name="roll_no" required>
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Date of Birth</span>
-                        </div>
-                        <input class="form-control" type="date" name="dob" required>
-                    </div>
-                    <button class="btn btn-primary" type="submit">Get Result</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
-
-
 <section class="mt-4" id="printResults">
     <div class="container latest-results">
     <h4 class="text-center">Results</h4>
