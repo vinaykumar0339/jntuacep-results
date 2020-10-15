@@ -105,6 +105,7 @@ def result(request):
             
         final_result['sgpa'] = Decimal(sgpa/sum(credits)).quantize(Decimal('.001'), rounding=ROUND_DOWN)
         print(final_result)
-    except:
-        print("error")
+    except Exception as e:
+        print(e)
+        
     return render(request,'result.html',context=final_result)
