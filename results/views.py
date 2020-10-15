@@ -37,7 +37,7 @@ def result(request):
         url = "https://jntuacep.ac.in/results/"+sem
         print(url)
         portal = requests.post(url,data={'roll_no':roll_no,'dob':dob})
-        print(portal)
+        print(portal.content)
         soup = BeautifulSoup(portal.content,'lxml')
         result = soup.find('section',{'id':"printResults"})
         # semester name
