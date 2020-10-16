@@ -62,7 +62,7 @@
         <h4 class="text-center">Get Results</h4>
         <div class="row">
             <div class="col-sm-5 mx-auto text-center">
-                <form action="result" method="post">
+                <form action="" method="post">
                     {% csrf_token %}
                     <div class="input-group mb-3">
                         <select style="width: auto;" class="form-control" name="semester">
@@ -91,6 +91,70 @@
         </div>
     </div>
 </section>
+
+{% if semester %}
+    <section class="mt-4" id="printResults">
+        <div class="container latest-results">
+        <h4 class="text-center">Results</h4>
+        <h5 class="text-center">JNTUA College of Engineering (Autonomous), Pulivendula</h5>
+        <h6 class="text-center" style="color: blue;">{{ semester }}</h6>
+        
+            {% if student_name %}
+                <div class="row mb-4">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-6">
+                        <div><span style="color: red;"><b>Hall Ticket:</b></span>
+                            <span><b>{{hall_ticket}}</b></span></div>
+                        <div><span style="color: red;"><b>Student Name:</b></span>
+                            <span><b>{{student_name}}</b></span></div>
+                        <div><span style="color: red;"><b>Date of Birth:</b></span>
+                            <span><b>{{dob}}</b></span></div>
+                        {% if fail > 0 or absent > 0 %}
+                            <p style="font-size: 20px;">Sorry! you are failed the semester:</p>
+                            <p>No.of failed subjects: {{fail}}</p>
+                            <p>No.of absent subjects: {{absent}}</p>
+                        {% else %}
+                            <p style="font-size: 20px;">Congratulations you passed the semester with sgpa: <b>{{sgpa}}</b></p>
+                        {% endif %}
+                    </div>
+                    <div class="col-sm-3">
+                    </div>
+                </div>
+                <div class="row text-center">
+                    <div class="col-sm-10 mx-auto">
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                {% for column in column_names %}
+                                    <th>{{column}}</th>
+                                {% endfor %}
+                                <th>Points</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                                {% for dd in data.values %}
+                                    <tr>
+                                        {% for d in dd %}
+                                            <td>{{d}}</td>
+                                        {% endfor %}
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            {% else %}
+            <div class="alert alert-warning text-center">
+                <strong>Error!</strong> No data found. Please check your roll no or date of birth. .
+            </div>
+            {% endif %}
+
+    </section>
+            <iframe name="print_frame" width="0" height="0" frameborder="0" src="about:blank"></iframe>
+
+{% endif %}
+
 
 <footer>
     <div class="container footer-part mt-5 text-center">

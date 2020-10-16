@@ -4,16 +4,13 @@ from bs4 import BeautifulSoup
 from decimal import *
 # Create your views here.
 
-def home(request):
-    return render(request,'index.html')
+# def home(request):
+#     return render(request,'index.html')
 
-def result(request):
+def home(request):
     roll_no = request.POST.get('roll_no')
     dob = request.POST.get('dob')
     sem = request.POST.get('semester')
-    print(roll_no)
-    print(dob)
-    print(sem)
     grades = {
         'S' : 10,
         'A++' : 9.5,
@@ -35,11 +32,8 @@ def result(request):
 
     try:
         url = "https://jntuacep.ac.in/results/"+sem
-        print(url)
         portal = requests.post(url,data={'roll_no':roll_no,'dob':dob})
-        print(portal.content)
         soup = BeautifulSoup(portal.content,'lxml')
-        print(soup)
         result = soup.find('section',{'id':"printResults"})
         # semester name
         semester = result.h6.text
@@ -105,8 +99,7 @@ def result(request):
             sgpa += (float(final_result['data'][sub][5]) * float(final_result['data'][sub][6]))
             
         final_result['sgpa'] = Decimal(sgpa/sum(credits)).quantize(Decimal('.001'), rounding=ROUND_DOWN)
-        print(final_result)
     except Exception as e:
-        print(e)
+        pass
         
-    return render(request,'result.html',context=final_result)
+    return render(request,'index.html',context=final_result)
