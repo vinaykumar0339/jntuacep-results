@@ -8,6 +8,8 @@ from decimal import *
 #     return render(request,'index.html')
 
 def home(request):
+    print(request.META.get('REMOTE_ADD'))
+    print(request.META.get('HTTP_X_REAL_IP'))
     roll_no = request.POST.get('roll_no')
     dob = request.POST.get('dob')
     sem = request.POST.get('semester')
