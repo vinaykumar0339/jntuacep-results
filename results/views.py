@@ -9,11 +9,6 @@ import socket
 #     return render(request,'index.html')
 
 def home(request):
-    print(socket.gethostname())
-    print(socket.gethostbyname(socket.gethostname()))
-    print(request.META['HTTP_X_FORWARDED_FOR'])
-    print(request.META.get('REMOTE_ADD'))
-    print(request.META.get('HTTP_X_REAL_IP'))
     roll_no = request.POST.get('roll_no')
     dob = request.POST.get('dob')
     sem = request.POST.get('semester')
