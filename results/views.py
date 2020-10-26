@@ -2,12 +2,15 @@ from django.shortcuts import render
 import requests
 from bs4 import BeautifulSoup
 from decimal import *
+import socket
 # Create your views here.
 
 # def home(request):
 #     return render(request,'index.html')
 
 def home(request):
+    print(socket.gethostname())
+    print(socket.gethostbyname(socket.gethostname()))
     print(request.META.get('REMOTE_ADD'))
     print(request.META.get('HTTP_X_REAL_IP'))
     roll_no = request.POST.get('roll_no')
