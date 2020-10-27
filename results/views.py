@@ -67,7 +67,7 @@ def home(request):
                 count = count + 1
                 final_result['data'][sub] = []
             if '\r\n' in d.text or '\r' in d.text:
-                final_result['data'][sub].append(d.text[0])
+                final_result['data'][sub].append(d.text)
             else:
                 final_result['data'][sub].append(d.text) 
         
